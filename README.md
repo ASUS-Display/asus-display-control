@@ -12,9 +12,9 @@ For users who prefer a graphical software, [ASUS DisplayWidget Center](https://w
 
 | Target users | Solution | What it enables |
 |---|---|---|
-| Enterprise IT managers | [CLI](cli/win-x32/dwc/) + IT tools | Remote scripting, deployment, auditing, and standardized monitor configuration across corporate workstations. |
-| Developers | [CLI](cli/win-x32/dwc/) + Scripts | Monitor-control automation from Command Prompt, PowerShell, or scripts. |
-| General users | [CLI](cli/win-x32/dwc/) + [Agent skill](skills/asus-display-control/SKILL.md) | Natural-language monitor control through an AI assistant. |
+| Enterprise IT managers | [CLI](#cli-quick-start) + IT tools | Remote scripting, deployment, auditing, and standardized monitor configuration across corporate workstations. |
+| Developers | [CLI](#cli-quick-start) + Scripts | Monitor-control automation from Command Prompt, PowerShell, or scripts. |
+| General users | [CLI](#cli-quick-start) + [Agent Skill](#ai-agent-skill) | Natural-language monitor control through an AI assistant. |
 
 ## Enterprise IT Management
 
@@ -38,17 +38,17 @@ Use ASUS Display Control CLI for remote IT management and standardized monitor c
 
 To try the CLI directly without installing:
 
-- Copy the full `cli\win-x32\dwc\` folder to your Windows PC
-- Open **Command Prompt** and navigate to the copied folder
+- Download the latest CLI [dwc.zip](https://github.com/ASUS-Display/asus-display-control/raw/main/cli/dwc.zip) and unzip to your PC
+- Open Windows **Command Prompt** and navigate to the unzip folder
 - Try the following commands
 
 | Command | Description |
 |---|---|
-| `dwc.exe help` | Show available commands and syntax |
-| `dwc.exe list` | List all connected ASUS monitors |
-| `dwc.exe info` | Show detailed info for connected monitors |
-| `dwc.exe get brightness` | Read current brightness value |
-| `dwc.exe set brightness 60` | Set brightness to 60 |
+| `.\dwc.exe help` | Show available commands and syntax |
+| `.\dwc.exe list` | List all connected ASUS monitors |
+| `.\dwc.exe info` | Show detailed info for connected monitors |
+| `.\dwc.exe get brightness` | Read current brightness value |
+| `.\dwc.exe set brightness 60` | Set brightness to 60 |
 
 For command syntax, supported properties, and examples, see [CLI_REFERENCE.md](CLI_REFERENCE.md).
 
@@ -90,6 +90,7 @@ The skill is available at [skills/asus-display-control/SKILL.md](skills/asus-dis
 
 ## Documentation
 
+- [CLI Download: dwc.zip](https://github.com/ASUS-Display/asus-display-control/raw/main/cli/dwc.zip)
 - [CLI Reference](CLI_REFERENCE.md)
 - [CLI Installation](cli/win-x32/dwc/README.md)
 - [AI Agent Skill](skills/asus-display-control/SKILL.md)

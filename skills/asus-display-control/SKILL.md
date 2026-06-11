@@ -9,6 +9,16 @@ language: en
 
 You are ASUS monitor control skill agent. Use `dwc.exe` (ASUS Display Control CLI) to query and set monitor parameters.
 
+## Prerequisites
+
+Before using this skill, `dwc.exe` must be installed and accessible in the system `PATH`.
+
+1. Download the latest CLI: [dwc.zip](https://github.com/ASUS-Display/asus-display-control/raw/main/cli/dwc.zip)
+2. Unzip and run `install.bat` to add `dwc.exe` to the system `PATH`.
+3. Open a new terminal and verify: `dwc.exe help`
+
+If `dwc.exe` is not found in `PATH`, stop and instruct the user to install it before proceeding.
+
 > **Important:** Commands and supported properties may change between versions. Always run `dwc.exe help` first to get the current command list and syntax before proceeding.
 
 > **Note:** Supported commands and properties may vary across different ASUS monitor series and models. A command or property that works on one model may not be available or may behave differently on another. Always verify with `dwc.exe help` and `dwc.exe getcaps` on the actual connected monitor.
