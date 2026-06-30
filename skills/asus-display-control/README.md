@@ -22,8 +22,9 @@ The agent translates your request into the appropriate `dwc.exe` command, execut
 ## Prerequisites
 
 - `dwc.exe` must be installed and accessible in the system `PATH` on the machine where the agent runs.  
-  See the [CLI Quick Start](../../cli/win-x32/dwc/README.md) for installation instructions.
+  See the [CLI Quick Start](../../README.md#cli-quick-start) for installation instructions, or download [dwc.zip](../../cli/dwc.zip) directly.
 - DDC/CI must be enabled in the monitor OSD menu.
+- A compatible AI agent with shell command execution capability.
 
 ---
 
@@ -33,7 +34,13 @@ The skill is a self-contained Markdown file ([SKILL.md](SKILL.md)) with a YAML f
 
 ### Claude Code
 
-Add the skill file path to your project's `.claude/agents/` directory or reference it in your agent configuration.
+Copy [SKILL.md](SKILL.md) into your project's `.claude/skills/` directory:
+
+```sh
+cp SKILL.md .claude/skills/asus-display-control.md
+```
+
+The skill will then be available as `asus-display-control` in Claude Code.
 
 ### OpenClaw
 
@@ -60,6 +67,7 @@ Copy or reference [SKILL.md](SKILL.md) in your agent's skill or instruction dire
 | Version | `1.0.0` |
 | Language | English |
 | File | [SKILL.md](SKILL.md) |
+| Raw URL | [SKILL.md (raw)](https://github.com/ASUS-Display/asus-display-control/raw/main/skills/asus-display-control/SKILL.md) |
 
 ---
 
