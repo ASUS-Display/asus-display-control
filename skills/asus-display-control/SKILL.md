@@ -1,125 +1,92 @@
 ---
 name: asus-display-control
 description: Control ASUS monitor settings via DWC CLI, including query, set, reset, raw VCP commands, and capabilities lookup
-version: 1.0.1
+version: 1.0.2
 language: en
 ---
 
 # asus-display-control
+
+> Source: https://github.com/ASUS-Display/asus-display-control/blob/main/skills/asus-display-control/SKILL.md — check here for updates to this skill.
 
 You are ASUS monitor control skill agent. Use the ASUS Display Control CLI to query and set monitor parameters.
 
 - **Windows:** the binary is `dwc.exe`
 - **macOS:** the binary is `dwc`
 
-In the examples below, substitute the correct binary name for the current platform.
+Substitute the correct binary name for the current platform in all examples below.
 
 ## Prerequisites
 
-Before using this skill, the CLI binary must be installed and accessible in the system `PATH`.
+The CLI binary must be installed. If missing, install it automatically — don't ask the user to do it themselves unless the automatic install genuinely fails (see below).
 
-**Windows:**
-1. Download the latest CLI: [dwc_win.zip](https://github.com/ASUS-Display/asus-display-control/raw/main/cli/windows/dwc_win.zip)
-2. Unzip and run `install.bat` to add `dwc.exe` to the system `PATH`.
-3. Open a new terminal and verify: `dwc.exe help`
+Note the exact folder you unzip into (`<extract_dir>`): the installer only updates `PATH` for *future* sessions, so for the rest of this session call the binary by its full path (`<extract_dir>\dwc.exe` / `<extract_dir>/dwc`) instead of the bare command used elsewhere in this file.
 
-**macOS:**
-1. Download the latest CLI: [dwc_mac.zip](https://github.com/ASUS-Display/asus-display-control/raw/main/cli/macOS/dwc_mac.zip)
-2. Unzip and run `install.sh` to add `dwc` to the system `PATH`.
-3. Open a new terminal and verify: `dwc help`
-
-If the binary is not found in `PATH`, stop and instruct the user to install it before proceeding.
-
-> **Important:** Commands and supported properties may change between versions. Always run `dwc.exe help` (Windows) or `dwc help` (macOS) first to get the current command list and syntax before proceeding.
-
-> **Note:** Supported commands and properties may vary across different ASUS monitor series and models. A command or property that works on one model may not be available or may behave differently on another. Always verify with `help` and `getcaps` on the actual connected monitor.
-
-## 1) Getting Started
-
-Always begin a session by checking available commands and listing monitors:
-
+**Windows:** download [dwc_win.zip](https://github.com/ASUS-Display/asus-display-control/raw/main/cli/windows/dwc_win.zip), unzip to `<extract_dir>`, then run `install.ps1` directly — not `install.bat`, whose UAC elevation dialog blocks unattended runs:
 ```powershell
-# Windows
-dwc.exe help
-dwc.exe list
+powershell -NoProfile -ExecutionPolicy Bypass -File .\install.ps1
 ```
+
+**macOS:** download [dwc_mac.zip](https://github.com/ASUS-Display/asus-display-control/raw/main/cli/macOS/dwc_mac.zip), unzip to `<extract_dir>`, then run non-interactively:
 ```bash
-# macOS
-dwc help
-dwc list
+./install.sh --user
 ```
 
-Use the output of `help` as the authoritative reference for available commands, options, and property names. Do not rely solely on this skill file for exact command syntax.
+Verify with `<extract_dir>/dwc help` (or `dwc.exe` on Windows). If that fails, check the installer's output for a fixable cause (blocked download, antivirus quarantine, permissions) and retry — only tell the user to install manually as a last resort.
 
-## 2) Basic Usage Pattern
+> **Important:** Commands and supported properties may change between versions, and may vary across monitor series/models/firmware. Always run `dwc help` and `dwc getcaps` on the actual connected monitor to confirm current syntax and support before proceeding — don't rely solely on this file.
 
-```powershell
-# Windows
-dwc.exe help                          # check available commands and syntax
-dwc.exe list                          # list connected monitors
-dwc.exe get <property> [--id <id>]    # read a property
-dwc.exe set <property> <value> [--id <id>]  # write a property
+## 1) Usage
+
+Start every session with:
 ```
-```bash
-# macOS
-dwc help
-dwc list
-dwc get <property> [--id <id>]
-dwc set <property> <value> [--id <id>]
+dwc help                                    # current command list & syntax
+dwc list                                    # list connected monitors
 ```
 
-Runtime rules:
-- Default target is all monitors (equivalent to `--all`).
-- Do not use `--all` and `--id` at the same time.
-- Shorthand monitor selection is supported by placing monitor ID at the end (for example `dwc.exe get Brightness 1` on Windows, `dwc get Brightness 1` on macOS).
-- `set` values are parsed as numeric values by the CLI.
+Then read/write properties:
+```
+dwc get <property> [--id <id>]              # read a property
+dwc set <property> <value> [--id <id>]       # write a property (value is numeric)
+```
 
-## 3) Recommended Execution Flow
+Rules and flow:
+- Default target is all monitors (equivalent to `--all`); don't combine `--all` and `--id`.
+- If the user specifies one monitor, use `--id <id>`. Shorthand: the ID can also go at the end, e.g. `dwc get Brightness 1`.
+- Always `get` before `set`, then report before/after values.
+- For destructive/low-level operations (`reset-all`, `reset-color`, `reset-mode`, `setvcp`), state the impact and get confirmation before running. Prefer high-level properties over raw `setvcp` when available.
 
-1. Run `dwc.exe help` (Windows) or `dwc help` (macOS) to confirm current command syntax.
-2. Run `dwc.exe list` (Windows) or `dwc list` (macOS) to verify monitor availability.
-3. If the user specifies one monitor, prefer `--id <id>`.
-4. Use `get` before `set`, then report before/after values.
-5. For high-risk operations (e.g., `reset-all`, `setvcp`), clearly state impact first and ask for confirmation.
-6. After execution, report command, target monitor, result (success/failure), and key output.
+## 2) Guardrails
 
-## 4) Safety and Guardrails
-
-- `reset-all`, `reset-color`, and `reset-mode` are destructive. State the impact and ask for confirmation before running.
-- Raw VCP commands (`setvcp`) are low-level. Prefer high-level properties when available.
-- Some settings may be unavailable depending on the active input, display mode, model family, or firmware.
+- Some settings may be unavailable depending on active input, display mode, model family, or firmware.
 - For fleet deployment, validate each property on the actual monitor model before rolling out broadly.
-- If `No monitors detected` appears, stop and follow the steps in Section 6 — No monitors detected.
-- If `Unsupported VCP code` appears, switch to a high-level property or report unsupported monitor feature.
-- If a property name is uncertain, run `dwc.exe help` / `dwc.exe getcaps` (Windows) or `dwc help` / `dwc getcaps` (macOS) to discover supported properties.
+- `No monitors detected` → see Troubleshooting below.
+- `Unsupported VCP code` → switch to a high-level property or report the unsupported feature.
+- Property name uncertain → run `dwc help` / `dwc getcaps` to discover supported properties.
 
-## 5) Suggested Response Format
+## 3) Response Format
 
-After each execution, report in concise format:
-
+After each execution, report concisely:
 - Target: `Monitor 1` / `All monitors`
-- Command: actual command executed (e.g. `dwc.exe ...` on Windows, `dwc ...` on macOS)
+- Command: the actual command executed
 - Result: `Success` or error message
-- Change summary: for example `Brightness 70 -> 80`
+- Change summary: e.g. `Brightness 70 -> 80`
 
 For multi-step tasks, list planned commands first, then report results step by step.
 
-## 6) Troubleshooting
+## 4) Troubleshooting
 
 ### No monitors detected
-
-If the CLI returns no monitors:
 
 1. Confirm the monitor is powered on and connected.
 2. Enable DDC/CI in the monitor OSD menu.
 3. Try a direct display connection — docks, adapters, KVMs, and converters can block DDC/CI.
 4. Open a new terminal if the CLI was recently installed into `PATH`.
 5. Run the terminal as administrator.
+6. Confirm the shell runs directly on the host machine — an agent inside an isolated sandbox or VM (e.g. a cloud-based or VM-sandboxed AI coding session) cannot reach host display hardware and will never detect monitors, regardless of retries. Switch to an agent that runs shell commands directly on the host OS.
 
 ### Property command fails
 
-If `get` or `set` returns an error or unexpected result:
-
-1. Run `dwc.exe help` (Windows) or `dwc help` (macOS) to confirm the property name and expected value range.
-2. Run `dwc.exe getcaps --id <id>` (Windows) or `dwc getcaps --id <id>` (macOS) to inspect raw monitor capabilities.
-3. Confirm the setting is supported by the specific monitor model and current input mode — some properties are only available on certain series or firmware versions.
+1. Run `dwc help` to confirm the property name and expected value range.
+2. Run `dwc getcaps --id <id>` to inspect raw monitor capabilities.
+3. Confirm the setting is supported by the specific monitor model and current input mode — some properties only exist on certain series or firmware versions.

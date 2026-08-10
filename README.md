@@ -1,6 +1,6 @@
 # 🖥️ ASUS Display Control
 
-![CLI](https://img.shields.io/badge/CLI-Windows-blue)
+![CLI](https://img.shields.io/badge/CLI-Windows%20%7C%20macOS-blue)
 ![License](https://img.shields.io/badge/license-Apache%202.0-green)
 
 🌐 **Language**: **English** · [繁體中文](./README/README.zh-TW.md) · [简体中文](./README/README.zh-CN.md) · [日本語](./README/README.ja.md) · [한국어](./README/README.ko.md) · [Español](./README/README.es.md)
@@ -90,7 +90,30 @@ The skill is available at [skills/asus-display-control/SKILL.md](skills/asus-dis
 
 ### Compatible Agents
 
-- ✅ Any agent that supports custom Markdown skill files and shell command execution.
+Works with any agent that runs shell commands **directly on your local machine** — that's what reaches the monitor's DDC/CI hardware. Agents that execute in an isolated cloud sandbox or virtual machine cannot control the monitor, even if they support running shell commands.
+
+**✅ Works** (local shell execution):
+
+- Claude CLI
+- Claude Code
+- Cursor
+- GitHub Copilot
+- Google Gemini CLI
+- Hermes Agent
+- JetBrains Junie
+- OpenAI Codex CLI
+- OpenClaw
+
+**❌ Doesn't work** (cloud/sandboxed execution):
+
+- Claude Cowork
+- Cursor Cloud Agent
+- GitHub Copilot (cloud-based)
+- Google Jules
+- OpenAI Codex Cloud (ChatGPT)
+- Replit Agent
+
+This list isn't exhaustive — if you're unsure about a specific agent, check whether its shell commands run on your own machine or inside a remote/cloud sandbox.
 
 ## ⚙️ Requirements
 
