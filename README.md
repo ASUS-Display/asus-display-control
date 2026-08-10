@@ -3,7 +3,7 @@
 ![CLI](https://img.shields.io/badge/CLI-Windows-blue)
 ![License](https://img.shields.io/badge/license-Apache%202.0-green)
 
-🌐 **Language**: **English** · [繁體中文](./README.zh-TW.md) · [简体中文](./README.zh-CN.md) · [日本語](./README.ja.md) · [한국어](./README.ko.md) · [Español](./README.es.md)
+🌐 **Language**: **English** · [繁體中文](./README/README.zh-TW.md) · [简体中文](./README/README.zh-CN.md) · [日本語](./README/README.ja.md) · [한국어](./README/README.ko.md) · [Español](./README/README.es.md)
 
 ASUS Display Control provides tools for querying and configuring ASUS monitor settings.
 This repository currently includes a [CLI](#-cli-quick-start) (Command-Line Interface) tool for scripting and automation, and an AI [Agent Skill](#-ai-agent-skill) for natural-language monitor control.
@@ -13,7 +13,7 @@ For users who prefer a GUI (Graphical User Interface), [ASUS DisplayWidget Cente
 ## 📋 Overview
 
 | Target users | Solution | What it enables |
-|---|---|---|
+| --- | --- | --- |
 | Enterprise IT managers | [CLI](#-cli-quick-start) + IT tools | Remote scripting, deployment, auditing, and standardized monitor configuration across corporate workstations. |
 | Developers | [CLI](#-cli-quick-start) + Scripts | Monitor-control automation from Command Prompt, PowerShell, or scripts. |
 | AI Agent users | [CLI](#-cli-quick-start) + [Agent Skill](#-ai-agent-skill) | Natural-language monitor control through an AI assistant. |
@@ -71,7 +71,7 @@ Open **Command Prompt** (Windows) or **Terminal** (macOS) and try:
 | `dwc.exe get brightness` | `dwc get brightness` | Read current brightness value |
 | `dwc.exe set brightness 60` | `dwc set brightness 60` | Set brightness to 60 |
 
-For command syntax, supported properties, and examples, see [CLI_REFERENCE.md](CLI_REFERENCE.md).
+For command syntax, supported properties, and examples, see [CLI_REFERENCE.md](cli/docs/CLI_REFERENCE.md).
 
 <img src="image/IMG_DWC_CLI_Example.png" alt="CLI Example" width="700">
 
@@ -101,7 +101,7 @@ The skill is available at [skills/asus-display-control/SKILL.md](skills/asus-dis
 
 ## 📚 Documentation
 
-- [CLI Reference](CLI_REFERENCE.md)
+- [CLI Reference](cli/docs/CLI_REFERENCE.md)
 - [AI Agent Skill](skills/asus-display-control/SKILL.md)
 - [ASUS DisplayWidget Center](https://www.asus.com/content/monitor-software-osd-displaywidgetcenter/)
 

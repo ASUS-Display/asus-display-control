@@ -1,28 +1,12 @@
+> 🌐 **Language**: **English** · [繁體中文](CLI_REFERENCE.zh-TW.md) · [简体中文](CLI_REFERENCE.zh-CN.md) · [日本語](CLI_REFERENCE.ja.md) · [한국어](CLI_REFERENCE.ko.md) · [Español](CLI_REFERENCE.es.md)
+
 # ASUS Display Control CLI Reference
 
 This document describes the command syntax for the ASUS Display Control CLI.
 
 Version covered: `0.1.0`
 
-Run `dwc.exe --help` (Windows) or `dwc --help` (macOS) on the target machine before scripting or troubleshooting. The CLI help output is the authoritative source for the installed version, and supported properties can vary by monitor model.
-
-## Installation
-
-Download and unzip the CLI for your platform.
-
-| Platform | Download | Executable |
-| --- | --- | --- |
-| Windows | [dwc.zip](https://github.com/ASUS-Display/asus-display-control/raw/main/cli/windows/dwc.zip) | `dwc.exe` |
-| macOS | Coming soon | `dwc` |
-
-The install scripts are included in the unzipped folder.
-
-| Platform | Script | Updates |
-| --- | --- | --- |
-| Windows | `install.bat` | `PATH` in Windows Environment Variables |
-| macOS | `install.sh` (coming soon) | `PATH` in shell profile |
-
-**Note**: Do not move or delete the folder after installation — the CLI will stop working if the folder is moved or removed.
+For download and installation instructions, see [README.md](../../README.md#-cli-quick-start).
 
 ## Usage
 
@@ -41,7 +25,7 @@ dwc <command> [options]
 ## Global Options
 
 | Option | Description |
-|---|---|
+| --- | --- |
 | `-h`, `--help` | Show help information. |
 | `-v`, `--version` | Show CLI version. |
 | `-id`, `--id <id>` | Target a specific monitor by ID. |
@@ -58,7 +42,7 @@ Monitor selection notes:
 ## Commands
 
 | Command | Syntax | Description |
-|---|---|---|
+| --- | --- | --- |
 | `help` | `dwc.exe help` | Show help information. |
 | `list` | `dwc.exe list` | List all detected monitors with IDs. |
 | `info` | `dwc.exe info [options]` | Show monitor information, such as model, serial, and firmware. |
@@ -94,24 +78,6 @@ dwc.exe setvcp 0x10 80 --id 1
 dwc.exe reset-all --id 1
 ```
 
-## Recommended Workflow
-
-For interactive use:
-
-1. Run `dwc.exe --help`.
-2. Run `dwc.exe list`.
-3. Run `dwc.exe info --id <id>` if you need to confirm a target monitor.
-4. Run `dwc.exe get <prop> --id <id>` before changing a setting.
-5. Run `dwc.exe set <prop> <value> --id <id>`.
-6. Run `dwc.exe get <prop> --id <id>` again to confirm the change.
-
-For automation:
-
-- Log the output of `list`, `info`, `get`, and `set` commands.
-- Prefer `--id <id>` when targeting a known display.
-- Validate property support on the actual monitor before rolling a setting out broadly.
-- Treat reset commands and raw VCP writes as high-risk operations.
-
 ## Property Reference
 
 Supported properties vary by ASUS monitor model, firmware, input mode, and connection path. If a property is not supported, use `dwc.exe --help`, `dwc.exe getcaps`, or monitor-specific documentation to confirm availability.
@@ -119,7 +85,7 @@ Supported properties vary by ASUS monitor model, firmware, input mode, and conne
 ### Image And Color
 
 | Property | Values |
-|---|---|
+| --- | --- |
 | `Brightness` | Brightness level, `0-100`. |
 | `BlueLightFilter` | Blue light filter level, `0:OFF`, `1-Max`. |
 | `Contrast` | Contrast level, `0-100`. |
@@ -140,7 +106,7 @@ Supported properties vary by ASUS monitor model, firmware, input mode, and conne
 ### Display Modes
 
 | Property | Values |
-|---|---|
+| --- | --- |
 | `Splendid` | ZenScreen and Business preset: `1:Theater`, `2:Scenery`, `3:sRGB`, `4:Standard`, `5:Game`, `6:Night View`, `7:Reading`, `8:Darkroom`. |
 | `GameVisual` | ROG/TUF Gaming preset: `1:Cinema`, `2:Scenery`, `3:sRGB`, `4:User`, `5:Racing`, `6:RTS/RPG`, `7:FPS`, `8:MOBA`, `9:Night Vision`, `10:sRGB Calibration`. |
 | `ProArtPreset` | ProArt preset: `0:Native`, `1:sRGB`, `2:AdobeRGB`, `3:Rec.2020`, `4:DCI-P3`, `5:DICOM`, `6:Rec.709`. |
@@ -152,7 +118,7 @@ Supported properties vary by ASUS monitor model, firmware, input mode, and conne
 ### System Setup
 
 | Property | Values |
-|---|---|
+| --- | --- |
 | `AudioVolume` | Speaker volume, `0-100`. |
 | `PowerSaving` | Power mode, `0:Standard/Performance`, `1:PowerSaving`. |
 | `UsageTime` | Total display usage time in hours, read-only. |
@@ -170,7 +136,7 @@ Supported properties vary by ASUS monitor model, firmware, input mode, and conne
 ### GamePlus And QuickFit
 
 | Property | Values |
-|---|---|
+| --- | --- |
 | `FPS` | FPS counter, `0:OFF`, `1:Numerical`, `2:Bar Graph`. |
 | `Timer` | Timer overlay, `0:OFF`, `1:30s`, `2:40s`, `3:50s`, `4:60s`, `5:90s`. |
 | `Crosshair` | Crosshair overlay: `0:OFF`, `7:Blue dot`, `8:Green dot`, `9:Blue target`, `10:Green target`, `11:Blue crosshair`, `12:Green crosshair`. |
@@ -179,14 +145,14 @@ Supported properties vary by ASUS monitor model, firmware, input mode, and conne
 ### Aura Lighting
 
 | Property | Values |
-|---|---|
+| --- | --- |
 | `AuraColor` | Aura color: `0:OFF`, `1:Red`, `2:Green`, `3:Blue`, `4:Cyan`, `5:Magenta`, `6:Yellow`. |
 | `AuraMode` | Aura mode: `0:OFF`, `1:Aura Sync (Armoury Crate)`, `2:Aura RGB - Rainbow`, `3:Aura RGB - Color Cycle`, `4:Aura RGB - Static`, `5:Aura RGB - Breathing`, `6:Aura RGB - Strobing`. |
 
 ### ProArt Self-Calibration
 
 | Property | Values |
-|---|---|
+| --- | --- |
 | `SelfCalStart` | Self-calibration execution: `0:OFF`, `1:Start with warm up`, `2:Start without warm up`. |
 | `SelfCalTarget` | Self-calibration target modes: `0:sRGB`, `1:Adobe RGB`, `2:Rec.2020`, `3:DCI-P3`, `4:DICOM`, `5:Rec.709`, `6:HDR_PQ`, `7:HDR_HLG`. |
 | `SelfCalRoutine` | Self-calibration repeat mode: `0:Off`, `1:Single`, `2:Daily`, `3:Every 7 days`, `4:Every 14 days`, `5:Every 28 days`. |
@@ -199,7 +165,7 @@ Supported properties vary by ASUS monitor model, firmware, input mode, and conne
 ### OLED Features
 
 | Property | Values |
-|---|---|
+| --- | --- |
 | `OledAntiFlicker` | OLED anti-flicker level, `0:OFF`, `1:ON`. |
 | `OledScreenMove` | OLED screen move, `0-Max`. |
 | `OledWarningTimer` | OLED pixel cleaning reminder in hours, `0-Max`. |
@@ -212,26 +178,3 @@ Supported properties vary by ASUS monitor model, firmware, input mode, and conne
 | `OledLogoDetection` | OLED auto logo brightness logo detection, `0:OFF`, `1:ON`. |
 | `OledTaskbarDetection` | OLED auto logo brightness taskbar detection, `0:OFF`, `1:ON`. |
 | `OledBoundaryDetection` | OLED auto logo brightness boundary detection, `0:OFF`, `1:ON`. |
-
-## Safety Notes
-
-- `reset-all`, `reset-color`, and `reset-mode` change monitor state and should require explicit approval in remote or agent-driven workflows.
-- `setvcp` writes raw VCP values. Prefer high-level properties such as `Brightness` or `InputSource` when available.
-- Some settings may be unavailable depending on the active input, display mode, model family, or firmware.
-- For broad deployment, test on each monitor model before rolling out settings across a fleet.
-
-## Troubleshooting
-
-If no monitors are detected:
-
-- Confirm the monitor is powered on and connected.
-- Enable DDC/CI in the monitor OSD menu.
-- Try a direct display connection instead of a dock, adapter, KVM, or converter.
-- Open a new terminal after installing the CLI into `PATH`.
-- Try running the terminal as administrator.
-
-If a property fails:
-
-- Run `dwc.exe --help` to confirm the property name and expected value.
-- Run `dwc.exe getcaps --id <id>` to inspect raw monitor capabilities.
-- Confirm that the setting is supported by the specific monitor model and current input mode.

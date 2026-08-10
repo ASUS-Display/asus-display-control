@@ -1,9 +1,9 @@
-> 🌐 **語言**: [English](./README.md) · **繁體中文** · [简体中文](./README.zh-CN.md) · [日本語](./README.ja.md) · [한국어](./README.ko.md) · [Español](./README.es.md)
-
 # 🖥️ ASUS Display Control
 
 ![CLI](https://img.shields.io/badge/CLI-Windows-blue)
 ![License](https://img.shields.io/badge/license-Apache%202.0-green)
+
+> 🌐 **語言**: [English](../README.md) · **繁體中文** · [简体中文](./README.zh-CN.md) · [日本語](./README.ja.md) · [한국어](./README.ko.md) · [Español](./README.es.md)
 
 ASUS Display Control 提供查詢與設定 ASUS 螢幕的工具。
 此儲存庫目前包含用於腳本與自動化的 [CLI](#-cli-快速開始) 工具，以及用於自然語言螢幕控制的 AI [Agent Skill](#-ai-agent-skill)。
@@ -13,14 +13,14 @@ ASUS Display Control 提供查詢與設定 ASUS 螢幕的工具。
 ## 📋 概覽
 
 | 目標使用者 | 解決方案 | 功能說明 |
-|---|---|---|
+| --- | --- | --- |
 | 企業 IT 管理員 | [CLI](#-cli-快速開始) + IT 工具 | 遠端腳本、部署、稽核，以及跨企業工作站的標準化螢幕設定。 |
 | 開發者 | [CLI](#-cli-快速開始) + 腳本 | 透過命令提示字元、PowerShell 或腳本進行螢幕控制自動化。 |
 | AI Agent 使用者 | [CLI](#-cli-快速開始) + [Agent Skill](#-ai-agent-skill) | 透過 AI 助理以自然語言控制螢幕。 |
 
 ## 🏢 企業 IT 管理
 
-<img src="image/IMG_DWC_CLI_Enterprise.png" alt="Enterprise IT Management" width="700">
+<img src="../image/IMG_DWC_CLI_Enterprise.png" alt="Enterprise IT Management" width="700">
 
 使用 ASUS Display Control CLI 進行遠端 IT 管理，並跨企業工作站統一標準化螢幕設定。
 
@@ -57,7 +57,7 @@ ASUS Display Control 提供查詢與設定 ASUS 螢幕的工具。
 
 **注意**：安裝後請勿移動或刪除該資料夾——若資料夾被移動或刪除，CLI 將無法正常運作。
 
-<img src="image/IMG_DWC_CLI_Install.png" alt="CLI Installation" width="700">
+<img src="../image/IMG_DWC_CLI_Install.png" alt="CLI Installation" width="700">
 
 ### CLI 指令
 
@@ -71,9 +71,9 @@ ASUS Display Control 提供查詢與設定 ASUS 螢幕的工具。
 | `dwc.exe get brightness` | `dwc get brightness` | 讀取目前亮度值 |
 | `dwc.exe set brightness 60` | `dwc set brightness 60` | 將亮度設為 60 |
 
-如需指令語法、支援的屬性及範例，請參閱 [CLI_REFERENCE.md](CLI_REFERENCE.md)。
+如需指令語法、支援的屬性及範例，請參閱 [CLI_REFERENCE.md](../cli/docs/CLI_REFERENCE.zh-TW.md)。
 
-<img src="image/IMG_DWC_CLI_Example.png" alt="CLI Example" width="700">
+<img src="../image/IMG_DWC_CLI_Example.png" alt="CLI Example" width="700">
 
 ## 🤖 AI Agent Skill
 
@@ -86,11 +86,34 @@ ASUS Display Control 提供查詢與設定 ASUS 螢幕的工具。
 - 💬「將所有螢幕的亮度設為 50。」
 - 💬「查看這台螢幕支援哪些設定。」
 
-技能檔案位於 [skills/asus-display-control/SKILL.md](skills/asus-display-control/SKILL.md)。請將其複製或引用至支援本機技能檔案或自訂 Markdown 指令且可執行 Shell 指令的相容 Agent 中。
+技能檔案位於 [skills/asus-display-control/SKILL.md](../skills/asus-display-control/SKILL.md)。請將其複製或引用至支援本機技能檔案或自訂 Markdown 指令且可執行 Shell 指令的相容 Agent 中。
 
 ### 相容 Agent
 
-- ✅ 任何支援自訂 Markdown 技能檔案與 Shell 指令執行的 Agent。
+支援任何**直接在你本機執行 Shell 指令**的 Agent——這樣才能連到螢幕的 DDC/CI 硬體。在隔離雲端沙箱或虛擬機中執行的 Agent 無法控制螢幕，即使它支援執行 Shell 指令也一樣。
+
+**✅ 可用**（本機執行 Shell）：
+
+- Claude CLI
+- Claude Code
+- Cursor
+- GitHub Copilot
+- Google Gemini CLI
+- Hermes Agent
+- JetBrains Junie
+- OpenAI Codex CLI
+- OpenClaw
+
+**❌ 不可用**（雲端／沙箱執行）：
+
+- Claude Cowork
+- Cursor Cloud Agent
+- GitHub Copilot（雲端版）
+- Google Jules
+- OpenAI Codex Cloud（ChatGPT）
+- Replit Agent
+
+以上清單並非完整列表——如果不確定某個 Agent 屬於哪一類，可以確認它的 Shell 指令是在你自己的機器上執行，還是在遠端／雲端沙箱中執行。
 
 ## ⚙️ 系統需求
 
@@ -101,10 +124,10 @@ ASUS Display Control 提供查詢與設定 ASUS 螢幕的工具。
 
 ## 📚 文件
 
-- [CLI 參考手冊](CLI_REFERENCE.md)
-- [AI Agent Skill](skills/asus-display-control/SKILL.md)
+- [CLI 參考手冊](../cli/docs/CLI_REFERENCE.zh-TW.md)
+- [AI Agent Skill](../skills/asus-display-control/SKILL.md)
 - [ASUS DisplayWidget Center](https://www.asus.com/content/monitor-software-osd-displaywidgetcenter/)
 
 ## 📄 授權
 
-本專案採用 Apache License 2.0 授權。詳情請參閱 [LICENSE](LICENSE)。
+本專案採用 Apache License 2.0 授權。詳情請參閱 [LICENSE](../LICENSE)。

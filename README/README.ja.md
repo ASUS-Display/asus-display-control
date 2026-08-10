@@ -1,9 +1,9 @@
-> 🌐 **言語**: [English](./README.md) · [繁體中文](./README.zh-TW.md) · [简体中文](./README.zh-CN.md) · **日本語** · [한국어](./README.ko.md) · [Español](./README.es.md)
-
 # 🖥️ ASUS Display Control
 
 ![CLI](https://img.shields.io/badge/CLI-Windows-blue)
 ![License](https://img.shields.io/badge/license-Apache%202.0-green)
+
+> 🌐 **言語**: [English](../README.md) · [繁體中文](./README.zh-TW.md) · [简体中文](./README.zh-CN.md) · **日本語** · [한국어](./README.ko.md) · [Español](./README.es.md)
 
 ASUS Display Control は、ASUS モニターの設定を照会・変更するためのツールを提供します。
 このリポジトリには、スクリプトや自動化のための [CLI](#-cli-クイックスタート) ツールと、自然言語によるモニター制御のための AI [Agent Skill](#-ai-agent-skill) が含まれています。
@@ -13,14 +13,14 @@ GUI（グラフィカルユーザーインターフェース）をご希望の�
 ## 📋 概要
 
 | 対象ユーザー | ソリューション | できること |
-|---|---|---|
+| --- | --- | --- |
 | 企業 IT 管理者 | [CLI](#-cli-クイックスタート) + IT ツール | 企業ワークステーション全体のリモートスクリプト、デプロイ、監査、および標準化されたモニター設定。 |
 | 開発者 | [CLI](#-cli-クイックスタート) + スクリプト | コマンドプロンプト、PowerShell、またはスクリプトからのモニター制御の自動化。 |
 | AI Agent ユーザー | [CLI](#-cli-クイックスタート) + [Agent Skill](#-ai-agent-skill) | AI アシスタントを通じた自然言語によるモニター制御。 |
 
 ## 🏢 企業 IT 管理
 
-<img src="image/IMG_DWC_CLI_Enterprise.png" alt="Enterprise IT Management" width="700">
+<img src="../image/IMG_DWC_CLI_Enterprise.png" alt="Enterprise IT Management" width="700">
 
 ASUS Display Control CLI を使用して、リモート IT 管理と企業ワークステーション全体の標準化されたモニター設定を実現します。
 
@@ -57,7 +57,7 @@ ASUS Display Control CLI を使用して、リモート IT 管理と企業ワー
 
 **注意**: インストール後はフォルダーを移動または削除しないでください — フォルダーが移動または削除されると CLI は動作しなくなります。
 
-<img src="image/IMG_DWC_CLI_Install.png" alt="CLI Installation" width="700">
+<img src="../image/IMG_DWC_CLI_Install.png" alt="CLI Installation" width="700">
 
 ### CLI コマンド
 
@@ -71,9 +71,9 @@ ASUS Display Control CLI を使用して、リモート IT 管理と企業ワー
 | `dwc.exe get brightness` | `dwc get brightness` | 現在の輝度値を読み取る |
 | `dwc.exe set brightness 60` | `dwc set brightness 60` | 輝度を 60 に設定する |
 
-コマンド構文、サポートされているプロパティ、および使用例については、[CLI_REFERENCE.md](CLI_REFERENCE.md) を参照してください。
+コマンド構文、サポートされているプロパティ、および使用例については、[CLI_REFERENCE.md](../cli/docs/CLI_REFERENCE.ja.md) を参照してください。
 
-<img src="image/IMG_DWC_CLI_Example.png" alt="CLI Example" width="700">
+<img src="../image/IMG_DWC_CLI_Example.png" alt="CLI Example" width="700">
 
 ## 🤖 AI Agent Skill
 
@@ -86,11 +86,34 @@ ASUS Display Control CLI を使用して、リモート IT 管理と企業ワー
 - 💬「すべてのモニターの輝度を 50 に設定してください。」
 - 💬「このモニターがサポートしている設定を確認してください。」
 
-Agent Skill は [skills/asus-display-control/SKILL.md](skills/asus-display-control/SKILL.md) にあります。ローカルスキルファイルまたはカスタム Markdown 指示をサポートし、シェルコマンドを実行できる互換性のある Agent にコピーまたは参照してください。
+Agent Skill は [skills/asus-display-control/SKILL.md](../skills/asus-display-control/SKILL.md) にあります。ローカルスキルファイルまたはカスタム Markdown 指示をサポートし、シェルコマンドを実行できる互換性のある Agent にコピーまたは参照してください。
 
 ### 互換性のある Agent
 
-- ✅ カスタム Markdown スキルファイルとシェルコマンド実行をサポートする任意の Agent。
+**ローカルマシン上で直接シェルコマンドを実行する** Agent であれば利用できます——これがモニターの DDC/CI ハードウェアに到達する条件です。隔離されたクラウドサンドボックスや仮想マシン内で実行される Agent は、シェルコマンドの実行に対応していてもモニターを制御できません。
+
+**✅ 利用可能**（ローカルでシェル実行）：
+
+- Claude CLI
+- Claude Code
+- Cursor
+- GitHub Copilot
+- Google Gemini CLI
+- Hermes Agent
+- JetBrains Junie
+- OpenAI Codex CLI
+- OpenClaw
+
+**❌ 利用不可**（クラウド／サンドボックス実行）：
+
+- Claude Cowork
+- Cursor Cloud Agent
+- GitHub Copilot（クラウド版）
+- Google Jules
+- OpenAI Codex Cloud（ChatGPT）
+- Replit Agent
+
+このリストは網羅的ではありません。特定の Agent が該当するか不明な場合は、シェルコマンドが自分のマシン上で実行されるか、リモート／クラウドサンドボックス内で実行されるかを確認してください。
 
 ## ⚙️ 必要環境
 
@@ -101,10 +124,10 @@ Agent Skill は [skills/asus-display-control/SKILL.md](skills/asus-display-contr
 
 ## 📚 ドキュメント
 
-- [CLI リファレンス](CLI_REFERENCE.md)
-- [AI Agent Skill](skills/asus-display-control/SKILL.md)
+- [CLI リファレンス](../cli/docs/CLI_REFERENCE.ja.md)
+- [AI Agent Skill](../skills/asus-display-control/SKILL.md)
 - [ASUS DisplayWidget Center](https://www.asus.com/content/monitor-software-osd-displaywidgetcenter/)
 
 ## 📄 ライセンス
 
-Apache License 2.0 の下でライセンスされています。詳細については [LICENSE](LICENSE) を参照してください。
+Apache License 2.0 の下でライセンスされています。詳細については [LICENSE](../LICENSE) を参照してください。

@@ -1,9 +1,9 @@
-> 🌐 **Idioma**: [English](./README.md) · [繁體中文](./README.zh-TW.md) · [简体中文](./README.zh-CN.md) · [日本語](./README.ja.md) · [한국어](./README.ko.md) · **Español**
-
 # 🖥️ ASUS Display Control
 
 ![CLI](https://img.shields.io/badge/CLI-Windows-blue)
 ![License](https://img.shields.io/badge/license-Apache%202.0-green)
+
+> 🌐 **Idioma**: [English](../README.md) · [繁體中文](./README.zh-TW.md) · [简体中文](./README.zh-CN.md) · [日本語](./README.ja.md) · [한국어](./README.ko.md) · **Español**
 
 ASUS Display Control proporciona herramientas para consultar y configurar los ajustes de los monitores ASUS.
 Este repositorio incluye actualmente una herramienta [CLI](#-cli-inicio-rápido) para scripting y automatización, y un AI [Agent Skill](#-ai-agent-skill) para el control del monitor mediante lenguaje natural.
@@ -13,14 +13,14 @@ Para usuarios que prefieren una interfaz gráfica (GUI), [ASUS DisplayWidget Cen
 ## 📋 Descripción General
 
 | Usuarios objetivo | Solución | Funcionalidades |
-|---|---|---|
+| --- | --- | --- |
 | Administradores de TI empresarial | [CLI](#-cli-inicio-rápido) + herramientas de TI | Scripts remotos, implementación, auditoría y configuración estandarizada de monitores en estaciones de trabajo corporativas. |
 | Desarrolladores | [CLI](#-cli-inicio-rápido) + Scripts | Automatización del control del monitor desde el Símbolo del sistema, PowerShell o scripts. |
 | Usuarios de AI Agent | [CLI](#-cli-inicio-rápido) + [Agent Skill](#-ai-agent-skill) | Control del monitor mediante lenguaje natural a través de un asistente de IA. |
 
 ## 🏢 Gestión de TI Empresarial
 
-<img src="image/IMG_DWC_CLI_Enterprise.png" alt="Enterprise IT Management" width="700">
+<img src="../image/IMG_DWC_CLI_Enterprise.png" alt="Enterprise IT Management" width="700">
 
 Use ASUS Display Control CLI para la gestión remota de TI y la configuración estandarizada de monitores en estaciones de trabajo corporativas.
 
@@ -57,7 +57,7 @@ Los scripts de instalación están incluidos en la carpeta descomprimida.
 
 **Nota**: No mueva ni elimine la carpeta después de la instalación — la CLI dejará de funcionar si la carpeta se mueve o se elimina.
 
-<img src="image/IMG_DWC_CLI_Install.png" alt="CLI Installation" width="700">
+<img src="../image/IMG_DWC_CLI_Install.png" alt="CLI Installation" width="700">
 
 ### Comandos de CLI
 
@@ -71,9 +71,9 @@ Abra el **Símbolo del sistema** (Windows) o la **Terminal** (macOS) e intente:
 | `dwc.exe get brightness` | `dwc get brightness` | Leer el valor de brillo actual |
 | `dwc.exe set brightness 60` | `dwc set brightness 60` | Establecer el brillo en 60 |
 
-Para la sintaxis de comandos, propiedades compatibles y ejemplos, consulte [CLI_REFERENCE.md](CLI_REFERENCE.md).
+Para la sintaxis de comandos, propiedades compatibles y ejemplos, consulte [CLI_REFERENCE.md](../cli/docs/CLI_REFERENCE.es.md).
 
-<img src="image/IMG_DWC_CLI_Example.png" alt="CLI Example" width="700">
+<img src="../image/IMG_DWC_CLI_Example.png" alt="CLI Example" width="700">
 
 ## 🤖 AI Agent Skill
 
@@ -86,11 +86,34 @@ Solicitudes de ejemplo:
 - 💬 "Establece el brillo de todos los monitores en 50."
 - 💬 "Comprueba qué ajustes admite este monitor."
 
-El Agent Skill está disponible en [skills/asus-display-control/SKILL.md](skills/asus-display-control/SKILL.md). Cópielo o referencíelo desde un agente compatible que admita archivos de habilidades locales o instrucciones Markdown personalizadas y pueda ejecutar comandos de shell.
+El Agent Skill está disponible en [skills/asus-display-control/SKILL.md](../skills/asus-display-control/SKILL.md). Cópielo o referencíelo desde un agente compatible que admita archivos de habilidades locales o instrucciones Markdown personalizadas y pueda ejecutar comandos de shell.
 
 ### Agentes Compatibles
 
-- ✅ Cualquier agente que admita archivos de habilidades Markdown personalizados y la ejecución de comandos de shell.
+Funciona con cualquier agente que ejecute comandos de shell **directamente en tu equipo local** — eso es lo que permite llegar al hardware DDC/CI del monitor. Los agentes que se ejecutan en un sandbox o máquina virtual aislada en la nube no pueden controlar el monitor, aunque admitan la ejecución de comandos de shell.
+
+**✅ Funciona** (shell local):
+
+- Claude CLI
+- Claude Code
+- Cursor
+- GitHub Copilot
+- Google Gemini CLI
+- Hermes Agent
+- JetBrains Junie
+- OpenAI Codex CLI
+- OpenClaw
+
+**❌ No funciona** (ejecución en la nube/sandbox):
+
+- Claude Cowork
+- Cursor Cloud Agent
+- GitHub Copilot (basado en la nube)
+- Google Jules
+- OpenAI Codex Cloud (ChatGPT)
+- Replit Agent
+
+Esta lista no es exhaustiva — si no estás seguro de a qué categoría pertenece un agente, comprueba si sus comandos de shell se ejecutan en tu propio equipo o en un sandbox remoto/en la nube.
 
 ## ⚙️ Requisitos
 
@@ -101,10 +124,10 @@ El Agent Skill está disponible en [skills/asus-display-control/SKILL.md](skills
 
 ## 📚 Documentación
 
-- [Referencia de CLI](CLI_REFERENCE.md)
-- [AI Agent Skill](skills/asus-display-control/SKILL.md)
+- [Referencia de CLI](../cli/docs/CLI_REFERENCE.es.md)
+- [AI Agent Skill](../skills/asus-display-control/SKILL.md)
 - [ASUS DisplayWidget Center](https://www.asus.com/content/monitor-software-osd-displaywidgetcenter/)
 
 ## 📄 Licencia
 
-Con licencia bajo Apache License 2.0. Consulte [LICENSE](LICENSE) para obtener más detalles.
+Con licencia bajo Apache License 2.0. Consulte [LICENSE](../LICENSE) para obtener más detalles.
