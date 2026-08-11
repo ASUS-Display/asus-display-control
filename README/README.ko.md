@@ -1,6 +1,6 @@
 # 🖥️ ASUS Display Control
 
-![CLI](https://img.shields.io/badge/CLI-Windows-blue)
+![CLI](https://img.shields.io/badge/CLI-Windows%20%7C%20macOS-blue)
 ![License](https://img.shields.io/badge/license-Apache%202.0-green)
 
 > 🌐 **언어**: [English](../README.md) · [繁體中文](./README.zh-TW.md) · [简体中文](./README.zh-CN.md) · [日本語](./README.ja.md) · **한국어** · [Español](./README.es.md)
@@ -94,24 +94,22 @@ Agent Skill은 [skills/asus-display-control/SKILL.md](../skills/asus-display-con
 
 **✅ 사용 가능**(로컬에서 셸 실행):
 
-- Claude CLI
-- Claude Code
-- Cursor
-- GitHub Copilot
+- Cursor (Desktop App, Cursor CLI)
+- Claude Code (Desktop App, Claude CLI, VS Code extension)
+- GitHub Copilot (Desktop App, Copilot CLI, VS Code extension)
 - Google Gemini CLI
-- Hermes Agent
-- JetBrains Junie
 - OpenAI Codex CLI
 - OpenClaw
+- Hermes Agent
 
 **❌ 사용 불가**(클라우드/샌드박스 실행):
 
-- Claude Cowork
-- Cursor Cloud Agent
-- GitHub Copilot(클라우드 버전)
-- Google Jules
-- OpenAI Codex Cloud(ChatGPT)
-- Replit Agent
+- Cursor Cloud Agent(클라우드)
+- Claude Cowork(샌드박스)
+- GitHub Copilot Cloud Agents(클라우드)
+- Google Jules(클라우드)
+- Microsoft 365 Copilot(샌드박스)
+- OpenAI Codex Cloud(클라우드)
 
 위 목록은 전체가 아닙니다——특정 Agent가 어디에 속하는지 확실하지 않다면, 셸 명령이 본인 머신에서 실행되는지 아니면 원격/클라우드 샌드박스에서 실행되는지 확인하세요.
 

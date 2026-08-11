@@ -1,6 +1,6 @@
 # 🖥️ ASUS Display Control
 
-![CLI](https://img.shields.io/badge/CLI-Windows-blue)
+![CLI](https://img.shields.io/badge/CLI-Windows%20%7C%20macOS-blue)
 ![License](https://img.shields.io/badge/license-Apache%202.0-green)
 
 > 🌐 **Idioma**: [English](../README.md) · [繁體中文](./README.zh-TW.md) · [简体中文](./README.zh-CN.md) · [日本語](./README.ja.md) · [한국어](./README.ko.md) · **Español**
@@ -94,24 +94,22 @@ Funciona con cualquier agente que ejecute comandos de shell **directamente en tu
 
 **✅ Funciona** (shell local):
 
-- Claude CLI
-- Claude Code
-- Cursor
-- GitHub Copilot
+- Cursor (Desktop App, Cursor CLI)
+- Claude Code (Desktop App, Claude CLI, VS Code extension)
+- GitHub Copilot (Desktop App, Copilot CLI, VS Code extension)
 - Google Gemini CLI
-- Hermes Agent
-- JetBrains Junie
 - OpenAI Codex CLI
 - OpenClaw
+- Hermes Agent
 
 **❌ No funciona** (ejecución en la nube/sandbox):
 
-- Claude Cowork
-- Cursor Cloud Agent
-- GitHub Copilot (basado en la nube)
-- Google Jules
-- OpenAI Codex Cloud (ChatGPT)
-- Replit Agent
+- Cursor Cloud Agent (nube)
+- Claude Cowork (sandbox)
+- GitHub Copilot Cloud Agents (nube)
+- Google Jules (nube)
+- Microsoft 365 Copilot (sandbox)
+- OpenAI Codex Cloud (nube)
 
 Esta lista no es exhaustiva — si no estás seguro de a qué categoría pertenece un agente, comprueba si sus comandos de shell se ejecutan en tu propio equipo o en un sandbox remoto/en la nube.
 

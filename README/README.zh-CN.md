@@ -1,6 +1,6 @@
 # 🖥️ ASUS Display Control
 
-![CLI](https://img.shields.io/badge/CLI-Windows-blue)
+![CLI](https://img.shields.io/badge/CLI-Windows%20%7C%20macOS-blue)
 ![License](https://img.shields.io/badge/license-Apache%202.0-green)
 
 > 🌐 **语言**: [English](../README.md) · [繁體中文](./README.zh-TW.md) · **简体中文** · [日本語](./README.ja.md) · [한국어](./README.ko.md) · [Español](./README.es.md)
@@ -94,24 +94,22 @@ Agent Skill 位于 [skills/asus-display-control/SKILL.md](../skills/asus-display
 
 **✅ 可用**（本机执行 Shell）：
 
-- Claude CLI
-- Claude Code
-- Cursor
-- GitHub Copilot
+- Cursor (Desktop App, Cursor CLI)
+- Claude Code (Desktop App, Claude CLI, VS Code extension)
+- GitHub Copilot (Desktop App, Copilot CLI, VS Code extension)
 - Google Gemini CLI
-- Hermes Agent
-- JetBrains Junie
 - OpenAI Codex CLI
 - OpenClaw
+- Hermes Agent
 
 **❌ 不可用**（云端／沙箱执行）：
 
-- Claude Cowork
-- Cursor Cloud Agent
-- GitHub Copilot（云端版）
-- Google Jules
-- OpenAI Codex Cloud（ChatGPT）
-- Replit Agent
+- Cursor Cloud Agent（云端）
+- Claude Cowork（沙箱）
+- GitHub Copilot Cloud Agents（云端）
+- Google Jules（云端）
+- Microsoft 365 Copilot（沙箱）
+- OpenAI Codex Cloud（云端）
 
 以上列表并非完整——如果不确定某个 Agent 属于哪一类，可以确认它的 Shell 命令是在你自己的机器上执行，还是在远程／云端沙箱中执行。
 

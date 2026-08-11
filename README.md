@@ -90,28 +90,27 @@ The skill is available at [skills/asus-display-control/SKILL.md](skills/asus-dis
 
 ### Compatible Agents
 
-Works with any agent that runs shell commands **directly on your local machine** — that's what reaches the monitor's DDC/CI hardware. Agents that execute in an isolated cloud sandbox or virtual machine cannot control the monitor, even if they support running shell commands.
+Works with any agent that runs shell commands **directly on your local machine** — that's what reaches the monitor's DDC/CI hardware.
+Agents that execute in an isolated cloud sandbox or virtual machine cannot control the monitor, even if they support running shell commands.
 
 **✅ Works** (local shell execution):
 
-- Claude CLI
-- Claude Code
-- Cursor
-- GitHub Copilot
+- Cursor (Desktop App, Cursor CLI)
+- Claude Code (Desktop App, Claude CLI, VS Code extension)
+- GitHub Copilot (Desktop App, Copilot CLI, VS Code extension)
 - Google Gemini CLI
-- Hermes Agent
-- JetBrains Junie
 - OpenAI Codex CLI
 - OpenClaw
+- Hermes Agent
 
 **❌ Doesn't work** (cloud/sandboxed execution):
 
-- Claude Cowork
-- Cursor Cloud Agent
-- GitHub Copilot (cloud-based)
-- Google Jules
-- OpenAI Codex Cloud (ChatGPT)
-- Replit Agent
+- Cursor Cloud Agent (cloud)
+- Claude Cowork (sandbox)
+- GitHub Copilot Cloud Agents (cloud)
+- Google Jules (cloud)
+- Microsoft 365 Copilot (sandbox)
+- OpenAI Codex Cloud (cloud)
 
 This list isn't exhaustive — if you're unsure about a specific agent, check whether its shell commands run on your own machine or inside a remote/cloud sandbox.
 

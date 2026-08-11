@@ -1,6 +1,6 @@
 # 🖥️ ASUS Display Control
 
-![CLI](https://img.shields.io/badge/CLI-Windows-blue)
+![CLI](https://img.shields.io/badge/CLI-Windows%20%7C%20macOS-blue)
 ![License](https://img.shields.io/badge/license-Apache%202.0-green)
 
 > 🌐 **語言**: [English](../README.md) · **繁體中文** · [简体中文](./README.zh-CN.md) · [日本語](./README.ja.md) · [한국어](./README.ko.md) · [Español](./README.es.md)
@@ -94,24 +94,22 @@ ASUS Display Control 提供查詢與設定 ASUS 螢幕的工具。
 
 **✅ 可用**（本機執行 Shell）：
 
-- Claude CLI
-- Claude Code
-- Cursor
-- GitHub Copilot
+- Cursor (Desktop App, Cursor CLI)
+- Claude Code (Desktop App, Claude CLI, VS Code extension)
+- GitHub Copilot (Desktop App, Copilot CLI, VS Code extension)
 - Google Gemini CLI
-- Hermes Agent
-- JetBrains Junie
 - OpenAI Codex CLI
 - OpenClaw
+- Hermes Agent
 
 **❌ 不可用**（雲端／沙箱執行）：
 
-- Claude Cowork
-- Cursor Cloud Agent
-- GitHub Copilot（雲端版）
-- Google Jules
-- OpenAI Codex Cloud（ChatGPT）
-- Replit Agent
+- Cursor Cloud Agent（雲端）
+- Claude Cowork（沙箱）
+- GitHub Copilot Cloud Agents（雲端）
+- Google Jules（雲端）
+- Microsoft 365 Copilot（沙箱）
+- OpenAI Codex Cloud（雲端）
 
 以上清單並非完整列表——如果不確定某個 Agent 屬於哪一類，可以確認它的 Shell 指令是在你自己的機器上執行，還是在遠端／雲端沙箱中執行。
 

@@ -1,6 +1,6 @@
 # 🖥️ ASUS Display Control
 
-![CLI](https://img.shields.io/badge/CLI-Windows-blue)
+![CLI](https://img.shields.io/badge/CLI-Windows%20%7C%20macOS-blue)
 ![License](https://img.shields.io/badge/license-Apache%202.0-green)
 
 > 🌐 **言語**: [English](../README.md) · [繁體中文](./README.zh-TW.md) · [简体中文](./README.zh-CN.md) · **日本語** · [한국어](./README.ko.md) · [Español](./README.es.md)
@@ -94,24 +94,22 @@ Agent Skill は [skills/asus-display-control/SKILL.md](../skills/asus-display-co
 
 **✅ 利用可能**（ローカルでシェル実行）：
 
-- Claude CLI
-- Claude Code
-- Cursor
-- GitHub Copilot
+- Cursor (Desktop App, Cursor CLI)
+- Claude Code (Desktop App, Claude CLI, VS Code extension)
+- GitHub Copilot (Desktop App, Copilot CLI, VS Code extension)
 - Google Gemini CLI
-- Hermes Agent
-- JetBrains Junie
 - OpenAI Codex CLI
 - OpenClaw
+- Hermes Agent
 
 **❌ 利用不可**（クラウド／サンドボックス実行）：
 
-- Claude Cowork
-- Cursor Cloud Agent
-- GitHub Copilot（クラウド版）
-- Google Jules
-- OpenAI Codex Cloud（ChatGPT）
-- Replit Agent
+- Cursor Cloud Agent（クラウド）
+- Claude Cowork（サンドボックス）
+- GitHub Copilot Cloud Agents（クラウド）
+- Google Jules（クラウド）
+- Microsoft 365 Copilot（サンドボックス）
+- OpenAI Codex Cloud（クラウド）
 
 このリストは網羅的ではありません。特定の Agent が該当するか不明な場合は、シェルコマンドが自分のマシン上で実行されるか、リモート／クラウドサンドボックス内で実行されるかを確認してください。
 
