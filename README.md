@@ -99,7 +99,7 @@ Agents that execute in an isolated cloud sandbox or virtual machine cannot contr
 - Claude Code (Desktop App, Claude CLI, VS Code extension)
 - GitHub Copilot (Desktop App, Copilot CLI, VS Code extension)
 - Google Gemini CLI
-- OpenAI Codex CLI
+- OpenAI Codex (Desktop App, Codex CLI, VS Code extension)
 - OpenClaw
 - Hermes Agent
 

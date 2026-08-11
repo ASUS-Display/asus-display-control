@@ -94,11 +94,11 @@ Agent Skill은 [skills/asus-display-control/SKILL.md](../skills/asus-display-con
 
 **✅ 사용 가능**(로컬에서 셸 실행):
 
-- Cursor (Desktop App, Cursor CLI)
-- Claude Code (Desktop App, Claude CLI, VS Code extension)
-- GitHub Copilot (Desktop App, Copilot CLI, VS Code extension)
-- Google Gemini CLI
-- OpenAI Codex CLI
+- Cursor (Desktop App, CLI)
+- Claude Code (Desktop App, CLI)
+- GitHub Copilot (Desktop App, CLI)
+- Google Antigravity (Desktop App, CLI)
+- OpenAI Codex (Desktop App, CLI)
 - OpenClaw
 - Hermes Agent
 
