@@ -95,11 +95,11 @@ Agents that execute in an isolated cloud sandbox or virtual machine cannot contr
 
 **✅ Works** (local shell execution):
 
-- Cursor (Desktop App, Cursor CLI)
-- Claude Code (Desktop App, Claude CLI, VS Code extension)
-- GitHub Copilot (Desktop App, Copilot CLI, VS Code extension)
-- Google Gemini CLI
-- OpenAI Codex (Desktop App, Codex CLI, VS Code extension)
+- Cursor (Desktop App, CLI)
+- Claude Code (Desktop App, CLI)
+- GitHub Copilot (Desktop App, CLI)
+- Google Antigravity (Desktop App, CLI)
+- OpenAI Codex (Desktop App, CLI)
 - OpenClaw
 - Hermes Agent
 
