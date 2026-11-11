@@ -4,7 +4,7 @@
 
 本文档说明 ASUS Display Control CLI 的命令语法。
 
-适用版本：`0.1.0`
+适用版本：`0.2.0`
 
 如需下载与安装说明，请参阅 [README.md](../../README.md#-cli-快速入门)。
 
@@ -97,6 +97,7 @@ dwc.exe reset-all --id 1
 | `RedGain`、`GreenGain`、`BlueGain` | RGB 增益，`0-100`。 |
 | `RedOffset`、`GreenOffset`、`BlueOffset` | RGB 偏移，`0-100`。 |
 | `Overdrive` | 改善响应时间 / Trace Free，`0:OFF`、`1-Max`。 |
+| `BlackLevel` | 黑电平，`0-Max`。 |
 | `ShadowBoost` | 暗部增强，`0:OFF`、`1-Max`。 |
 | `FrameRateBoost` | 双模式刷新率增强，`0:OFF`、`1:ON`。 |
 | `DynamicDimming` | 动态调光，`0:OFF`、`1-Max`。 |
@@ -112,7 +113,7 @@ dwc.exe reset-all --id 1
 | `ProArtPreset` | ProArt 预设模式：`0:Native`、`1:sRGB`、`2:AdobeRGB`、`3:Rec.2020`、`4:DCI-P3`、`5:DICOM`、`6:Rec.709`。 |
 | `InputRange` | `0:Auto`、`1:Full`、`2:Limited 16-235`、`3:Limited 16-254`、`4:SDI Full`。 |
 | `DualDisplay` | ZenScreen 双屏显示模式：`1:Mirror`、`2:Extend`、`3:Split`、`4:Independent`。 |
-| `PxP` | PIP/PBP 模式：`0:OFF`、`1:PIP Top-Right`、`2:PIP Top-Left`、`3:PIP Bottom-Right`、`4:PIP Bottom-Left`、`5:PBP Left/Right Equal`、`6:PBP Left Large`、`7:PBP Right Large`、`8:Frame x4 (2x2)`、`9:Frame x3 (Left Large, Right Top, Right Bottom)`、`10:Frame x3 (Right Large, Left Top, Left Bottom)`。 |
+| `PxPMode` | PIP/PBP 模式：`0:OFF`、`1:PIP Top-Right`、`2:PIP Top-Left`、`3:PIP Bottom-Right`、`4:PIP Bottom-Left`、`5:PBP Left/Right Equal`、`6:PBP Left Large`、`7:PBP Right Large`、`8:Frame x4 (2x2)`、`9:Frame x3 (Left Large, Right Top, Right Bottom)`、`10:Frame x3 (Right Large, Left Top, Left Bottom)`。 |
 | `PIPSize` | PIP 窗口大小，`0:OFF`、`1:Small`、`2:Medium`、`3:Large`。 |
 
 ### 系统设置
@@ -148,6 +149,15 @@ dwc.exe reset-all --id 1
 | --- | --- |
 | `AuraColor` | Aura 颜色：`0:OFF`、`1:Red`、`2:Green`、`3:Blue`、`4:Cyan`、`5:Magenta`、`6:Yellow`。 |
 | `AuraMode` | Aura 模式：`0:OFF`、`1:Aura Sync (Armoury Crate)`、`2:Aura RGB - Rainbow`、`3:Aura RGB - Color Cycle`、`4:Aura RGB - Static`、`5:Aura RGB - Breathing`、`6:Aura RGB - Strobing`。 |
+
+### 接近传感器（Gaming、ProArt）
+
+`ProximityDistance` 与 `ProximityScreenOffTime` 共用同一个 VCP code，但可以分别设置，互不影响。
+
+| 属性 | 数值 |
+| --- | --- |
+| `ProximityDistance` | 检测距离：`0:OFF`、`1:Max 120 cm`、`2:Max 90 cm`、`3:Max 60 cm`、`255:Tailored`。 |
+| `ProximityScreenOffTime` | 屏幕关闭时间（分钟），`0:OFF`、`1-255`。 |
 
 ### ProArt 自校色
 

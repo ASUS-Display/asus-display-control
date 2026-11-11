@@ -4,7 +4,7 @@
 
 이 문서는 ASUS Display Control CLI의 명령어 구문을 설명합니다.
 
-대상 버전: `0.1.0`
+대상 버전: `0.2.0`
 
 다운로드 및 설치 방법은 [README.md](../../README.md#-cli-빠른-시작)를 참조하십시오.
 
@@ -97,6 +97,7 @@ dwc.exe reset-all --id 1
 | `RedGain`, `GreenGain`, `BlueGain` | RGB 게인, `0-100`. |
 | `RedOffset`, `GreenOffset`, `BlueOffset` | RGB 오프셋, `0-100`. |
 | `Overdrive` | 응답 속도 개선 / Trace Free, `0:OFF`, `1-Max`. |
+| `BlackLevel` | 블랙 레벨, `0-Max`. |
 | `ShadowBoost` | 섀도우 부스트, `0:OFF`, `1-Max`. |
 | `FrameRateBoost` | 듀얼 모드 프레임 레이트 부스트, `0:OFF`, `1:ON`. |
 | `DynamicDimming` | 다이내믹 디밍, `0:OFF`, `1-Max`. |
@@ -112,7 +113,7 @@ dwc.exe reset-all --id 1
 | `ProArtPreset` | ProArt 프리셋: `0:Native`, `1:sRGB`, `2:AdobeRGB`, `3:Rec.2020`, `4:DCI-P3`, `5:DICOM`, `6:Rec.709`. |
 | `InputRange` | `0:Auto`, `1:Full`, `2:Limited 16-235`, `3:Limited 16-254`, `4:SDI Full`. |
 | `DualDisplay` | ZenScreen 듀얼 디스플레이 모드: `1:Mirror`, `2:Extend`, `3:Split`, `4:Independent`. |
-| `PxP` | PIP/PBP 모드: `0:OFF`, `1:PIP Top-Right`, `2:PIP Top-Left`, `3:PIP Bottom-Right`, `4:PIP Bottom-Left`, `5:PBP Left/Right Equal`, `6:PBP Left Large`, `7:PBP Right Large`, `8:Frame x4 (2x2)`, `9:Frame x3 (Left Large, Right Top, Right Bottom)`, `10:Frame x3 (Right Large, Left Top, Left Bottom)`. |
+| `PxPMode` | PIP/PBP 모드: `0:OFF`, `1:PIP Top-Right`, `2:PIP Top-Left`, `3:PIP Bottom-Right`, `4:PIP Bottom-Left`, `5:PBP Left/Right Equal`, `6:PBP Left Large`, `7:PBP Right Large`, `8:Frame x4 (2x2)`, `9:Frame x3 (Left Large, Right Top, Right Bottom)`, `10:Frame x3 (Right Large, Left Top, Left Bottom)`. |
 | `PIPSize` | PIP 크기, `0:OFF`, `1:Small`, `2:Medium`, `3:Large`. |
 
 ### 시스템 설정
@@ -148,6 +149,15 @@ dwc.exe reset-all --id 1
 | --- | --- |
 | `AuraColor` | Aura 색상: `0:OFF`, `1:Red`, `2:Green`, `3:Blue`, `4:Cyan`, `5:Magenta`, `6:Yellow`. |
 | `AuraMode` | Aura 모드: `0:OFF`, `1:Aura Sync (Armoury Crate)`, `2:Aura RGB - Rainbow`, `3:Aura RGB - Color Cycle`, `4:Aura RGB - Static`, `5:Aura RGB - Breathing`, `6:Aura RGB - Strobing`. |
+
+### 근접 센서 (Gaming, ProArt)
+
+`ProximityDistance`와 `ProximityScreenOffTime`은 같은 VCP 코드를 공유하지만, 서로 영향을 주지 않고 각각 설정할 수 있습니다.
+
+| 속성 | 값 |
+| --- | --- |
+| `ProximityDistance` | 감지 거리: `0:OFF`, `1:Max 120 cm`, `2:Max 90 cm`, `3:Max 60 cm`, `255:Tailored`. |
+| `ProximityScreenOffTime` | 화면 꺼짐 시간(분), `0:OFF`, `1-255`. |
 
 ### ProArt 자체 캘리브레이션
 

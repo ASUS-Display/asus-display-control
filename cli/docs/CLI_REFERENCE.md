@@ -4,7 +4,7 @@
 
 This document describes the command syntax for the ASUS Display Control CLI.
 
-Version covered: `0.1.0`
+Version covered: `0.2.0`
 
 For download and installation instructions, see [README.md](../../README.md#-cli-quick-start).
 
@@ -97,6 +97,7 @@ Supported properties vary by ASUS monitor model, firmware, input mode, and conne
 | `RedGain`, `GreenGain`, `BlueGain` | RGB gain, `0-100`. |
 | `RedOffset`, `GreenOffset`, `BlueOffset` | RGB offset, `0-100`. |
 | `Overdrive` | Improve response time / Trace Free, `0:OFF`, `1-Max`. |
+| `BlackLevel` | Black level, `0-Max`. |
 | `ShadowBoost` | Shadow boost, `0:OFF`, `1-Max`. |
 | `FrameRateBoost` | Dual Mode Frame Rate Boost, `0:OFF`, `1:ON`. |
 | `DynamicDimming` | Dynamic dimming, `0:OFF`, `1-Max`. |
@@ -112,7 +113,7 @@ Supported properties vary by ASUS monitor model, firmware, input mode, and conne
 | `ProArtPreset` | ProArt preset: `0:Native`, `1:sRGB`, `2:AdobeRGB`, `3:Rec.2020`, `4:DCI-P3`, `5:DICOM`, `6:Rec.709`. |
 | `InputRange` | `0:Auto`, `1:Full`, `2:Limited 16-235`, `3:Limited 16-254`, `4:SDI Full`. |
 | `DualDisplay` | ZenScreen Dual Display mode: `1:Mirror`, `2:Extend`, `3:Split`, `4:Independent`. |
-| `PxP` | PIP/PBP mode: `0:OFF`, `1:PIP Top-Right`, `2:PIP Top-Left`, `3:PIP Bottom-Right`, `4:PIP Bottom-Left`, `5:PBP Left/Right Equal`, `6:PBP Left Large`, `7:PBP Right Large`, `8:Frame x4 (2x2)`, `9:Frame x3 (Left Large, Right Top, Right Bottom)`, `10:Frame x3 (Right Large, Left Top, Left Bottom)`. |
+| `PxPMode` | PIP/PBP mode: `0:OFF`, `1:PIP Top-Right`, `2:PIP Top-Left`, `3:PIP Bottom-Right`, `4:PIP Bottom-Left`, `5:PBP Left/Right Equal`, `6:PBP Left Large`, `7:PBP Right Large`, `8:Frame x4 (2x2)`, `9:Frame x3 (Left Large, Right Top, Right Bottom)`, `10:Frame x3 (Right Large, Left Top, Left Bottom)`. |
 | `PIPSize` | PIP size, `0:OFF`, `1:Small`, `2:Medium`, `3:Large`. |
 
 ### System Setup
@@ -148,6 +149,15 @@ Supported properties vary by ASUS monitor model, firmware, input mode, and conne
 | --- | --- |
 | `AuraColor` | Aura color: `0:OFF`, `1:Red`, `2:Green`, `3:Blue`, `4:Cyan`, `5:Magenta`, `6:Yellow`. |
 | `AuraMode` | Aura mode: `0:OFF`, `1:Aura Sync (Armoury Crate)`, `2:Aura RGB - Rainbow`, `3:Aura RGB - Color Cycle`, `4:Aura RGB - Static`, `5:Aura RGB - Breathing`, `6:Aura RGB - Strobing`. |
+
+### Proximity Sensor (Gaming, ProArt)
+
+`ProximityDistance` and `ProximityScreenOffTime` share one VCP code, but each can be set without changing the other.
+
+| Property | Values |
+| --- | --- |
+| `ProximityDistance` | Detection distance: `0:OFF`, `1:Max 120 cm`, `2:Max 90 cm`, `3:Max 60 cm`, `255:Tailored`. |
+| `ProximityScreenOffTime` | Screen-off time in minutes, `0:OFF`, `1-255`. |
 
 ### ProArt Self-Calibration
 

@@ -1,7 +1,7 @@
 ---
 name: asus-display-control
 description: Control ASUS monitor settings via DWC CLI, including query, set, reset, raw VCP commands, and capabilities lookup
-version: 1.0.2
+version: 1.0.3
 language: en
 ---
 
@@ -20,11 +20,13 @@ Substitute the correct binary name for the current platform in all examples belo
 
 The CLI binary must be installed. If missing, install it automatically — don't ask the user to do it themselves unless the automatic install genuinely fails (see below).
 
-Note the exact folder you unzip into (`<extract_dir>`): the installer only updates `PATH` for *future* sessions, so for the rest of this session call the binary by its full path (`<extract_dir>\dwc.exe` / `<extract_dir>/dwc`) instead of the bare command used elsewhere in this file.
+Note the folder that holds the binary (`<bin_dir>`): the installer only updates `PATH` for *future* sessions, so for the rest of this session call the binary by its full path (`<bin_dir>\dwc.exe` / `<bin_dir>/dwc`) instead of the bare command used elsewhere in this file.
 
-**Windows:** download [dwc_win.zip](https://github.com/ASUS-Display/asus-display-control/raw/main/cli/windows/dwc_win.zip), unzip to `<extract_dir>`, then run `install.ps1` directly — not `install.bat`, whose UAC elevation dialog blocks unattended runs:
+**Windows:** download [dwc_win.zip](https://github.com/ASUS-Display/asus-display-control/raw/main/cli/windows/dwc_win.zip) and unzip it to `<extract_dir>`. The archive contains a `dwc` folder with one build per architecture, `dwc\win-x64\` (64-bit x64 Windows) and `dwc\win-x32\` (32-bit Windows; also used on ARM64 under emulation), so `<bin_dir>` is one of those two. Run that folder's `install.ps1` directly — not `install.bat`, whose UAC elevation dialog blocks unattended runs:
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\install.ps1
+$arch = if ($env:PROCESSOR_ARCHITEW6432) { $env:PROCESSOR_ARCHITEW6432 } else { $env:PROCESSOR_ARCHITECTURE }
+$binDir = Join-Path '<extract_dir>' $(if ($arch -eq 'AMD64') { 'dwc\win-x64' } else { 'dwc\win-x32' })
+powershell -NoProfile -ExecutionPolicy Bypass -File "$binDir\install.ps1"
 ```
 
 **macOS:** download [dwc_mac.zip](https://github.com/ASUS-Display/asus-display-control/raw/main/cli/macOS/dwc_mac.zip), unzip to `<extract_dir>`, then run non-interactively:
@@ -32,7 +34,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\install.ps1
 ./install.sh --user
 ```
 
-Verify with `<extract_dir>/dwc help` (or `dwc.exe` on Windows). If that fails, check the installer's output for a fixable cause (blocked download, antivirus quarantine, permissions) and retry — only tell the user to install manually as a last resort.
+Verify with `<bin_dir>/dwc help` (or `dwc.exe` on Windows). If that fails, check the installer's output for a fixable cause (blocked download, antivirus quarantine, permissions) and retry — only tell the user to install manually as a last resort.
 
 > **Important:** Commands and supported properties may change between versions, and may vary across monitor series/models/firmware. Always run `dwc help` and `dwc getcaps` on the actual connected monitor to confirm current syntax and support before proceeding — don't rely solely on this file.
 

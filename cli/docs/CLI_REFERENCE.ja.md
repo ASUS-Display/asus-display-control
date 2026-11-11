@@ -4,7 +4,7 @@
 
 このドキュメントでは、ASUS Display Control CLI のコマンド構文について説明します。
 
-対象バージョン: `0.1.0`
+対象バージョン: `0.2.0`
 
 ダウンロードとインストール手順については、[README.md](../../README.md#-cli-クイックスタート) を参照してください。
 
@@ -97,6 +97,7 @@ dwc.exe reset-all --id 1
 | `RedGain`、`GreenGain`、`BlueGain` | RGB ゲイン、`0-100`。 |
 | `RedOffset`、`GreenOffset`、`BlueOffset` | RGB オフセット、`0-100`。 |
 | `Overdrive` | 応答速度の改善 / Trace Free、`0:OFF`、`1-Max`。 |
+| `BlackLevel` | 黒レベル、`0-Max`。 |
 | `ShadowBoost` | シャドウブースト、`0:OFF`、`1-Max`。 |
 | `FrameRateBoost` | デュアルモードフレームレートブースト、`0:OFF`、`1:ON`。 |
 | `DynamicDimming` | ダイナミックディミング、`0:OFF`、`1-Max`。 |
@@ -112,7 +113,7 @@ dwc.exe reset-all --id 1
 | `ProArtPreset` | ProArt プリセット: `0:Native`、`1:sRGB`、`2:AdobeRGB`、`3:Rec.2020`、`4:DCI-P3`、`5:DICOM`、`6:Rec.709`。 |
 | `InputRange` | `0:Auto`、`1:Full`、`2:Limited 16-235`、`3:Limited 16-254`、`4:SDI Full`。 |
 | `DualDisplay` | ZenScreen デュアルディスプレイモード: `1:Mirror`、`2:Extend`、`3:Split`、`4:Independent`。 |
-| `PxP` | PIP/PBP モード: `0:OFF`、`1:PIP Top-Right`、`2:PIP Top-Left`、`3:PIP Bottom-Right`、`4:PIP Bottom-Left`、`5:PBP Left/Right Equal`、`6:PBP Left Large`、`7:PBP Right Large`、`8:Frame x4 (2x2)`、`9:Frame x3 (Left Large, Right Top, Right Bottom)`、`10:Frame x3 (Right Large, Left Top, Left Bottom)`。 |
+| `PxPMode` | PIP/PBP モード: `0:OFF`、`1:PIP Top-Right`、`2:PIP Top-Left`、`3:PIP Bottom-Right`、`4:PIP Bottom-Left`、`5:PBP Left/Right Equal`、`6:PBP Left Large`、`7:PBP Right Large`、`8:Frame x4 (2x2)`、`9:Frame x3 (Left Large, Right Top, Right Bottom)`、`10:Frame x3 (Right Large, Left Top, Left Bottom)`。 |
 | `PIPSize` | PIP サイズ、`0:OFF`、`1:Small`、`2:Medium`、`3:Large`。 |
 
 ### システム設定
@@ -148,6 +149,15 @@ dwc.exe reset-all --id 1
 | --- | --- |
 | `AuraColor` | Aura カラー: `0:OFF`、`1:Red`、`2:Green`、`3:Blue`、`4:Cyan`、`5:Magenta`、`6:Yellow`。 |
 | `AuraMode` | Aura モード: `0:OFF`、`1:Aura Sync (Armoury Crate)`、`2:Aura RGB - Rainbow`、`3:Aura RGB - Color Cycle`、`4:Aura RGB - Static`、`5:Aura RGB - Breathing`、`6:Aura RGB - Strobing`。 |
+
+### 近接センサー（Gaming、ProArt）
+
+`ProximityDistance` と `ProximityScreenOffTime` は同じ VCP コードを共有しますが、互いに影響せず個別に設定できます。
+
+| プロパティ | 値 |
+| --- | --- |
+| `ProximityDistance` | 検出距離: `0:OFF`、`1:Max 120 cm`、`2:Max 90 cm`、`3:Max 60 cm`、`255:Tailored`。 |
+| `ProximityScreenOffTime` | 画面オフまでの時間（分）、`0:OFF`、`1-255`。 |
 
 ### ProArt セルフキャリブレーション
 

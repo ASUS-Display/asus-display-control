@@ -52,7 +52,7 @@ ASUS Display Control 提供查詢與設定 ASUS 螢幕的工具。
 
 | 平台 | 腳本 | 更新項目 |
 | --- | --- | --- |
-| Windows | `install.bat` | Windows 環境變數中的 `PATH` |
+| Windows | `dwc\install.bat`(自動選擇 `win-x64` 或 `win-x32`) | Windows 環境變數中的 `PATH` |
 | macOS | `install.sh` | Shell 設定檔中的 `PATH` |
 
 **注意**：安裝後請勿移動或刪除該資料夾——若資料夾被移動或刪除，CLI 將無法正常運作。

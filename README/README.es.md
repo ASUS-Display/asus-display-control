@@ -52,7 +52,7 @@ Los scripts de instalación están incluidos en la carpeta descomprimida.
 
 | Plataforma | Script | Actualiza |
 | --- | --- | --- |
-| Windows | `install.bat` | `PATH` en las Variables de Entorno de Windows |
+| Windows | `dwc\install.bat` (elige `win-x64` o `win-x32` automáticamente) | `PATH` en las Variables de Entorno de Windows |
 | macOS | `install.sh` | `PATH` en el perfil del shell |
 
 **Nota**: No mueva ni elimine la carpeta después de la instalación — la CLI dejará de funcionar si la carpeta se mueve o se elimina.

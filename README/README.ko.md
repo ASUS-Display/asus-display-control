@@ -52,7 +52,7 @@ ASUS Display Control CLI를 사용하여 원격 IT 관리와 기업 워크스테
 
 | 플랫폼 | 스크립트 | 업데이트 항목 |
 | --- | --- | --- |
-| Windows | `install.bat` | Windows 환경 변수의 `PATH` |
+| Windows | `dwc\install.bat` (`win-x64` 또는 `win-x32` 자동 선택) | Windows 환경 변수의 `PATH` |
 | macOS | `install.sh` | 셸 프로필의 `PATH` |
 
 **참고**: 설치 후 폴더를 이동하거나 삭제하지 마십시오 — 폴더가 이동되거나 삭제되면 CLI가 작동하지 않습니다.

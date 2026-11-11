@@ -38,7 +38,7 @@ Unzip the archive, then run the install script included in the unzipped folder. 
 
 | Platform | Script | Updates |
 | --- | --- | --- |
-| Windows | `install.bat` | `PATH` in Windows Environment Variables |
+| Windows | `dwc\install.bat` (picks `win-x64` or `win-x32` automatically) | `PATH` in Windows Environment Variables |
 | macOS | `install.sh` | `PATH` in shell profile |
 
 **Note**: Do not move or delete the folder after installation — the CLI will stop working if the folder is moved or removed.

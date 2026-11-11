@@ -4,7 +4,7 @@
 
 Este documento describe la sintaxis de comandos de la CLI de ASUS Display Control.
 
-Versión cubierta: `0.1.0`
+Versión cubierta: `0.2.0`
 
 Para instrucciones de descarga e instalación, consulte [README.md](../../README.md#-cli-inicio-rápido).
 
@@ -97,6 +97,7 @@ Las propiedades compatibles varían según el modelo de monitor ASUS, el firmwar
 | `RedGain`, `GreenGain`, `BlueGain` | Ganancia RGB, `0-100`. |
 | `RedOffset`, `GreenOffset`, `BlueOffset` | Desplazamiento RGB, `0-100`. |
 | `Overdrive` | Mejora del tiempo de respuesta / Trace Free, `0:OFF`, `1-Max`. |
+| `BlackLevel` | Nivel de negro, `0-Max`. |
 | `ShadowBoost` | Realce de sombras, `0:OFF`, `1-Max`. |
 | `FrameRateBoost` | Impulso de tasa de fotogramas en modo dual, `0:OFF`, `1:ON`. |
 | `DynamicDimming` | Atenuación dinámica, `0:OFF`, `1-Max`. |
@@ -112,7 +113,7 @@ Las propiedades compatibles varían según el modelo de monitor ASUS, el firmwar
 | `ProArtPreset` | Preajuste ProArt: `0:Native`, `1:sRGB`, `2:AdobeRGB`, `3:Rec.2020`, `4:DCI-P3`, `5:DICOM`, `6:Rec.709`. |
 | `InputRange` | `0:Auto`, `1:Full`, `2:Limited 16-235`, `3:Limited 16-254`, `4:SDI Full`. |
 | `DualDisplay` | Modo de doble pantalla ZenScreen: `1:Mirror`, `2:Extend`, `3:Split`, `4:Independent`. |
-| `PxP` | Modo PIP/PBP: `0:OFF`, `1:PIP Top-Right`, `2:PIP Top-Left`, `3:PIP Bottom-Right`, `4:PIP Bottom-Left`, `5:PBP Left/Right Equal`, `6:PBP Left Large`, `7:PBP Right Large`, `8:Frame x4 (2x2)`, `9:Frame x3 (Left Large, Right Top, Right Bottom)`, `10:Frame x3 (Right Large, Left Top, Left Bottom)`. |
+| `PxPMode` | Modo PIP/PBP: `0:OFF`, `1:PIP Top-Right`, `2:PIP Top-Left`, `3:PIP Bottom-Right`, `4:PIP Bottom-Left`, `5:PBP Left/Right Equal`, `6:PBP Left Large`, `7:PBP Right Large`, `8:Frame x4 (2x2)`, `9:Frame x3 (Left Large, Right Top, Right Bottom)`, `10:Frame x3 (Right Large, Left Top, Left Bottom)`. |
 | `PIPSize` | Tamaño de PIP, `0:OFF`, `1:Small`, `2:Medium`, `3:Large`. |
 
 ### Configuración del sistema
@@ -148,6 +149,15 @@ Las propiedades compatibles varían según el modelo de monitor ASUS, el firmwar
 | --- | --- |
 | `AuraColor` | Color Aura: `0:OFF`, `1:Red`, `2:Green`, `3:Blue`, `4:Cyan`, `5:Magenta`, `6:Yellow`. |
 | `AuraMode` | Modo Aura: `0:OFF`, `1:Aura Sync (Armoury Crate)`, `2:Aura RGB - Rainbow`, `3:Aura RGB - Color Cycle`, `4:Aura RGB - Static`, `5:Aura RGB - Breathing`, `6:Aura RGB - Strobing`. |
+
+### Sensor de proximidad (Gaming, ProArt)
+
+`ProximityDistance` y `ProximityScreenOffTime` comparten el mismo código VCP, pero cada uno puede configurarse sin modificar el otro.
+
+| Propiedad | Valores |
+| --- | --- |
+| `ProximityDistance` | Distancia de detección: `0:OFF`, `1:Max 120 cm`, `2:Max 90 cm`, `3:Max 60 cm`, `255:Tailored`. |
+| `ProximityScreenOffTime` | Tiempo de apagado de pantalla en minutos, `0:OFF`, `1-255`. |
 
 ### Autocalibración ProArt
 
